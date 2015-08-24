@@ -1,0 +1,10 @@
+--- fec-3.0.1/makefile.orig	2015-08-05 22:54:16.307044266 +0000
++++ fec-3.0.1/makefile	2015-08-05 22:56:51.747043527 +0000
+@@ -44,7 +44,6 @@
+ 	mkdir -p ${exec_prefix}/lib
+ 	install -m 644 -p $(SHARED_LIB) libfec.a ${exec_prefix}/lib
+ #	(cd ${exec_prefix}/lib;ln -f -s $(SHARED_LIB) libfec.so)
+-	ldconfig
+ 	mkdir -p ${prefix}/include
+ 	install -m 644 -p fec.h ${prefix}/include
+ 	mkdir -m 0755 -p ${prefix}/man/man3

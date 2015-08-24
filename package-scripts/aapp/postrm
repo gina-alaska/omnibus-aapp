@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Perform necessary aapp removal steps
+# after package is uninstalled.
+#
+
+echo "aapp has been uninstalled!"
+
+exit 0
