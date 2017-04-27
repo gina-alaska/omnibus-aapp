@@ -1,11 +1,11 @@
-aapp Omnibus project
-====================
+omnibus-software Omnibus project
+================================
 This project creates full-stack platform-specific packages for
 `aapp`!
 
 Installation
 ------------
-You must have a sane Ruby 1.9+ environment with Bundler installed. Ensure all
+You must have a sane Ruby 2.0.0+ environment with Bundler installed. Ensure all
 the required gems are installed:
 
 ```shell
@@ -37,22 +37,13 @@ $ bin/omnibus clean aapp
 ```
 
 Adding the `--purge` purge option removes __ALL__ files generated during the
-build including the project install directory (`/opt/aapp`) and
+build including the project install directory (`/opt/omnibus-software`) and
 the package cache directory (`/var/cache/omnibus/pkg`):
 
 ```shell
 $ bin/omnibus clean aapp --purge
 ```
 
-### Publish
-
-Omnibus has a built-in mechanism for releasing to a variety of "backends", such
-as Amazon S3. You must set the proper credentials in your `omnibus.rb` config
-file or specify them via the command line.
-
-```shell
-$ bin/omnibus publish path/to/*.deb --backend s3
-```
 
 ### Help
 
@@ -62,6 +53,23 @@ Full help for the Omnibus command line interface can be accessed with the
 ```shell
 $ bin/omnibus help
 ```
+
+Version Manifest
+----------------
+
+Git-based software definitions may specify branches as their
+default_version. In this case, the exact git revision to use will be
+determined at build-time unless a project override (see below) or
+external version manifest is used.  To generate a version manifest use
+the `omnibus manifest` command:
+
+```
+omnibus manifest PROJECT -l warn
+```
+
+This will output a JSON-formatted manifest containing the resolved
+version of every software definition.
+
 
 Kitchen-based Build Environment
 -------------------------------
@@ -85,18 +93,18 @@ liking, you can bring up an individual build environment using the `kitchen`
 command.
 
 ```shell
-$ bin/kitchen converge ubuntu-1204
+$ kitchen converge centos
 ```
 
 Then login to the instance and build the project as described in the Usage
 section:
 
 ```shell
-$ bundle exec kitchen login ubuntu-1204
-[vagrant@ubuntu...] $ cd aapp
-[vagrant@ubuntu...] $ bundle install
-[vagrant@ubuntu...] $ ...
-[vagrant@ubuntu...] $ bin/omnibus build aapp
+$kitchen login centos
+[vagrant@centos.. ] $ . ./load-omnibus-toolchain.sh 
+[vagrant@centos..] $ cd aapp
+[vagrant@centos..] $ bundle install
+[vagrant@centos..] $ bin/omnibus build aapp
 ```
 
 For a complete list of all commands and platforms, run `kitchen list` or
