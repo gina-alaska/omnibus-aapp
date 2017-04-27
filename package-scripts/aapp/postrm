@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 #
-# Perform necessary aapp removal steps
+# Perform necessary omnibus-software removal steps
 # after package is uninstalled.
 #
 
-echo "aapp has been uninstalled!"
+echo "omnibus-software has been uninstalled!"
 
 exit 0
