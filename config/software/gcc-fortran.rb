@@ -1,4 +1,4 @@
-name "gcc"
+name "gcc-gfortran"
 default_version "4.4.7"
 
 dependency "gmp"
