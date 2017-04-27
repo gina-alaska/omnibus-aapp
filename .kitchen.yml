@@ -13,7 +13,9 @@ provisioner:
 
 platforms:
   - name: centos-6.8
-    run_list: yum-epel::default
+    run_list: ['yum-epel::default', 'packages']
+    attributes:
+      packages-cookbook: [ 'ksh', 'gcc-gfortran', 'libgfortran' ]
 suites:
   - name: default
     run_list: omnibus::default
