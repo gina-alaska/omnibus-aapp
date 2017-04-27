@@ -6,18 +6,18 @@
 
 name "aapp"
 maintainer "UAF-GINA"
-homepage "http://gina.alaska.edu.com"
+homepage "http://gina.alaska.edu"
 
 # Defaults to C:/aapp on Windows
 # and /opt/aapp on all other platforms
 install_dir "#{default_root}/#{name}"
 
 Omnibus::Config.append_timestamp(false)
-build_version "7.10"
+build_version "7.15"
 build_iteration 1
 
 # Creates required build directories
-dependency "preparation"
+#dependency "preparation"
 
 # aapp dependencies/components
 override :mpfr, version: '3.1.3'

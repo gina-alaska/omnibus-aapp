@@ -16,13 +16,13 @@
 
 # These options are required for all software definitions
 name "aapp"
-default_version "7.10"
+default_version "7.15"
 
 # A software can specify more than one version that is available for install
-version("7.10") { source md5: "59dac969ecb663d207d6571a24010f4b" }
+version("7.15") { source md5: "d49167f094daea4468a734678ea0ffa2" }
 
 # Sources may be URLs, git locations, or path locations
-source url: "http://mirrors.gina.alaska.edu/EUMET/AAPP_full_#{version}.tgz"
+source url: "http://hippy.gina.alaska.edu/distro/AAPP_full_#{version}.tgz"
 
 # This is the path, inside the tarball, where the source resides
 relative_path "AAPP_#{version}"
