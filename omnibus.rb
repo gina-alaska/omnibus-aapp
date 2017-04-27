@@ -1,5 +1,5 @@
 #
-# This file is used to configure the aapp project. It contains
+# This file is used to configure the omnibus-software project. It contains
 # some minimal configuration examples for working with Omnibus. For a full list
 # of configurable options, please see the documentation for +omnibus/config.rb+.
 #
@@ -13,7 +13,7 @@
 #
 # Uncomment this line to change the default base directory to "local"
 # -------------------------------------------------------------------
-#base_dir './local'
+# base_dir './local'
 #
 # Alternatively you can tune the individual values
 # ------------------------------------------------
@@ -40,8 +40,14 @@
 # solaris_compiler 'gcc'
 # build_retries 5
 # fetcher_read_timeout 120
+# fetcher_retries 5
 
 # Load additional software
 # ------------------------------
-software_gems ['omnibus-software']
+ software_gems ['omnibus-software']
 # local_software_dirs ['/path/to/local/software']
+
+# Windows architecture defaults
+# ------------------------------
+windows_arch   %w{x86 x64}.include?((ENV['OMNIBUS_WINDOWS_ARCH'] || '').downcase) ?
+                 ENV['OMNIBUS_WINDOWS_ARCH'].downcase.to_sym : :x86
