@@ -16,10 +16,10 @@
 
 # These options are required for all software definitions
 name "hdf5"
-default_version "1.8.15-patch1"
+default_version "1.10.0-patch1"
 
 # A software can specify more than one version that is available for install
-version("1.8.15-patch1") { source md5: "4467c25ed9c0b126b194a4d9d66c29ac" }
+version("1.10.0-patch1") { source md5: "9180ff0ef8dc2ef3f61bd37a7404f295" }
 
 # Sources may be URLs, git locations, or path locations
 source url: "http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-#{version}.tar.gz"
