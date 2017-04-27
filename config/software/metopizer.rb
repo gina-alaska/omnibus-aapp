@@ -16,13 +16,13 @@
 
 # These options are required for all software definitions
 name "metopizer"
-default_version "3.47"
+default_version "3.51.1"
 
 # A software can specify more than one version that is available for install
-version("3.47") { source md5: "15722bea19451d1a9b233c740a6ab144" }
+version("3.51.1") { source md5: "e91ac07bedcd53f3dec6c5a5c166ec66"}
 
 # Sources may be URLs, git locations, or path locations
-source url: "http://mirrors.gina.alaska.edu/EUMET/metopizer-3.47.tar.gz"
+source url: "http://hippy.gina.alaska.edu/distro/metopizer-#{version}.tar.gz"
 
 
 # This is the path, inside the tarball, where the source resides
