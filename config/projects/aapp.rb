@@ -24,6 +24,7 @@ override :mpfr, version: '3.1.3'
 runtime_dependency "libgfortran"
 dependency "aapp"
 dependency "metopizer"
+dependency "ops-lrs"
 
 # Version manifest file
 # dependency "version-manifest"
