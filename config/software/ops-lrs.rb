@@ -26,7 +26,7 @@ dependency 'fftw'
 version("OPS_V8.0-AAPP-l-20180118") { source md5: "76cd21ecc9a7bed6343566c473c36477" }
 
 # Sources may be URLs, git locations, or path locations
-source url: File.dirname(__FILE__) + "/../../tars/OPS_V8.0-AAPP-l-20180118.tgz"
+source path: File.dirname(__FILE__) + "/../../tars/OPS_V8.0-AAPP-l-20180118"
 
 # This is the path, inside the tarball, where the source resides
 relative_path "OPS_V8.0-AAPP-l-20180118"
@@ -44,6 +44,7 @@ build do
   #command [ "cp 
   command [ "./configure",
 	    "--aapp-prefix=#{install_dir}",
+	    "--xrcs-prefix=#{install_dir}/embedded",
             "--fftw-prefix=#{install_dir}/embedded",
             "--prefix=#{install_dir}/ops",
             "--arch=Linux-gfortran ",

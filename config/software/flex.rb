@@ -16,13 +16,20 @@
 
 # These options are required for all software definitions
 name "flex"
-default_version "2-5-35"
+default_version "2.5.37"
+
+dependency "automake"
+dependency "perl"
+dependency "bison"
+dependency "texinfo"
 
 # A software can specify more than one version that is available for install
-version("2-5-35") { source md5: "" }
+version("2.6.4") { source md5: "2882e3179748cc9f9c23ec593d6adc8d" }
+version("2.5.37") { source md5: "bd14a98a68c7c95ee4ef566ab571f340" }
 
 # Sources may be URLs, git locations, or path locations
 source url: "https://github.com/westes/flex/archive/flex-#{version}.tar.gz"
+#source url: "https://github.com/westes/flex/releases/download/v#{version}/flex-#{version}.tar.gz"
 
 
 # This is the path, inside the tarball, where the source resides
@@ -32,6 +39,8 @@ build do
   # Setup a default environment from Omnibus - you should use this Omnibus
   # helper everywhere. It will become the default in the future.
   env = with_standard_compiler_flags(with_embedded_path)
+
+  command "./autogen.sh", env: env
 
   command [ "./configure",
             "--prefix=#{install_dir}/embedded",

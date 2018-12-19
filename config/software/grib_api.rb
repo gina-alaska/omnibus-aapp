@@ -25,7 +25,7 @@ default_version "1.13.1"
 version("1.13.1") { source md5: "2d76933cd11ed33ff4141717a8761070" }
 
 # Sources may be URLs, git locations, or path locations
-source url: "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-#{version}.tar.gz?api=v2"
+source url: "https://confluence.ecmwf.int/download/attachments/3473437/grib_api-#{version}.tar.gz?api=v2"
 
 # This is the path, inside the tarball, where the source resides
 relative_path "grib_api-#{version}"

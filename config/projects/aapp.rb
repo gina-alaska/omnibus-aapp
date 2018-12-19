@@ -14,7 +14,7 @@ install_dir "#{default_root}/#{name}"
 
 Omnibus::Config.append_timestamp(false)
 build_version "7.15"
-build_iteration 1
+build_iteration 2 
 
 # Creates required build directories
 #dependency "preparation"
@@ -25,6 +25,7 @@ runtime_dependency "libgfortran"
 dependency "aapp"
 dependency "metopizer"
 dependency "ops-lrs"
+dependency "ncurses"
 
 # Version manifest file
 # dependency "version-manifest"
@@ -36,4 +37,5 @@ exclude "**/bundler/git"
 libs = Omnibus::HealthCheck::WHITELIST_LIBS.dup
 Omnibus::HealthCheck.send(:remove_const, :WHITELIST_LIBS)
 libs << "libgfortran.so.3"
+libs << "libtinfo.so.5"
 Omnibus::HealthCheck.const_set(:WHITELIST_LIBS, libs)

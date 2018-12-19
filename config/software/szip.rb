@@ -1,11 +1,11 @@
 name "szip"
-default_version "2.1"
+default_version "2.1.1"
 
 # A software can specify more than one version that is available for install
-version("2.1") { source md5: "902f831bcefb69c6b635374424acbead" }
+version("2.1.1") { source md5: "5addbf2a5b1bf928b92c47286e921f72" } 
 
 # Sources may be URLs, git locations, or path locations
-source url: "http://www.hdfgroup.org/ftp/lib-external/szip/#{version}/src/szip-#{version}.tar.gz"
+source path:  File.dirname(__FILE__) + "/../../tars/szip-#{version}"
 
 # This is the path, inside the tarball, where the source resides
 relative_path "szip-#{version}"

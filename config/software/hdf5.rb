@@ -16,13 +16,15 @@
 
 # These options are required for all software definitions
 name "hdf5"
-default_version "1.10.0-patch1"
+default_version "1.10.4"
 
 # A software can specify more than one version that is available for install
-version("1.10.0-patch1") { source md5: "9180ff0ef8dc2ef3f61bd37a7404f295" }
+version("1.10.4") { source md5: "cdf02e61f0d9920a7e7183aa0fb35429" }
 
 # Sources may be URLs, git locations, or path locations
-source url: "http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-#{version}.tar.gz"
+#source url: "http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-#{version}.tar.gz"
+source path: File.dirname(__FILE__) + "/../../tars/hdf5-#{version}"
+
 
 # This is the path, inside the tarball, where the source resides
 relative_path "hdf5-#{version}"

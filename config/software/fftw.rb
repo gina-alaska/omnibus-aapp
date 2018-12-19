@@ -22,7 +22,8 @@ default_version "3.0.1"
 version("3.0.1") { source md5: "76cd21ecc9a7bed6343566c473c36477" }
 
 # Sources may be URLs, git locations, or path locations
-source url: "https://nwpsaf.eu/downloads/aapp_data_files/OPS-LRS/external_libs/fftw-#{version}.tar.gz"
+source path:  File.dirname(__FILE__) + "/../../tars/fftw-#{version}"
+
 
 # This is the path, inside the tarball, where the source resides
 relative_path "fftw-#{version}"
@@ -40,6 +41,8 @@ build do
   command [ "./configure",
             "--prefix=#{install_dir}/embedded",
             ].join(" "), env: env
+
+  command "sed -i 's|libbench2 . tests doc tools|libbench2 . tests tools|g' Makefile", env: env
 
   # You can have multiple steps - they are executed in the order in which they
   # are read.
