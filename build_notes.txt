@@ -1,0 +1,15 @@
+For 8.x:
+
+Setup LD path:
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/aapp/hdf5/lib/:/opt/aapp/eccodes/lib/:/opt/aapp/opslrs/xerces-c-1.7.0/lib/:/opt/aapp/embedded/lib/
+
+Yum install extras not need for the actual app, but to build the app:
+sudo yum install texlive
+sudo yum install  help2man
+sudo yum install rsync
+sudo yum install cmake
+sudo yum install autoconf
+sudo yum install automake
+sudo yum provides "*makeinfo"
+
+
