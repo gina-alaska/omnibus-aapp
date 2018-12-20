@@ -18,6 +18,11 @@
 name "aapp"
 default_version "7.15"
 
+dependency "automake"
+dependency "perl"
+dependency "libiconv"
+dependency "zlib"
+
 # A software can specify more than one version that is available for install
 version("7.15") { source md5: "d49167f094daea4468a734678ea0ffa2" }
 
@@ -27,34 +32,12 @@ source url: "http://hippy.gina.alaska.edu/distro/AAPP_full_#{version}.tgz"
 # This is the path, inside the tarball, where the source resides
 relative_path "AAPP_#{version}"
 
-dependency 'hdf5'
-dependency 'bufrdc'
-dependency 'grib_api'
-
 build do
-  # Setup a default environment from Omnibus - you should use this Omnibus
-  # helper everywhere. It will become the default in the future.
   env = with_standard_compiler_flags(with_embedded_path)
 
-  # "command" is part of the build DSL. There are a number of handy options
-  # available, such as "copy", "sync", "ruby", etc. For a complete list, please
-  # consult the Omnibus gem documentation.
-  #
-  # "install_dir" is exposed and refers to the top-level projects +install_dir+
-  command [ "./configure",
-            "--site-id=GINA",
-            "--fortran-compiler=gfortran",
-            "--station=gilmore_creek",
-            "--station_id=GLC",
-            "--external-libs='-L#{install_dir}/embedded/lib -lbufr -lgrib_api_f77 -lgrib_api_f90 -lgrib_api -ljasper -lhdf5 -lsz -lz'",
-            "--external-includes='-I#{install_dir}/embedded/include'",
-            "--prefix=#{install_dir}"].join(" "), env: env
 
-  # You can have multiple steps - they are executed in the order in which they
-  # are read.
-  #
-  # "workers" is a DSL method that returns the most suitable number of
-  # builders for the currently running system.
-  command "make", env: env
-  command "make install", env: env
+  1.upto(10).each do |step|
+  	command [ File.dirname(__FILE__) +"/install_aapp8.sh",  
+		step.to_i ].join(" ")
+  end
 end

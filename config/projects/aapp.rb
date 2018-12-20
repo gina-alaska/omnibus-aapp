@@ -13,8 +13,8 @@ homepage "http://gina.alaska.edu"
 install_dir "#{default_root}/#{name}"
 
 Omnibus::Config.append_timestamp(false)
-build_version "7.15"
-build_iteration 2 
+build_version "8.3"
+build_iteration 1
 
 # Creates required build directories
 #dependency "preparation"
@@ -23,8 +23,6 @@ build_iteration 2
 override :mpfr, version: '3.1.3'
 runtime_dependency "libgfortran"
 dependency "aapp"
-dependency "metopizer"
-dependency "ops-lrs"
 dependency "ncurses"
 
 # Version manifest file
