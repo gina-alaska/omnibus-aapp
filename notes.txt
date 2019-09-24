@@ -1,0 +1,16 @@
+#install yum deps
+yum group install "Development Tools"
+yum install cmake
+yum install ksh
+yum install makeinfo
+yum install texinfo
+yum install help2man
+yum install ruby-dev ruby
+yum install ruby-devel
+
+combined:
+yum group install "Development Tools"
+yum install cmake ksh makeinfo texinfo help2man ruby ruby-devel
+
+gem install fpm
+fpm -s dir -t rpm -C / --name aapp --version 8.4.0 --iteration 1 --description "AAPP" /opt/aapp/
