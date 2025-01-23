@@ -14,3 +14,14 @@ yum install cmake ksh makeinfo texinfo help2man ruby ruby-devel
 
 gem install fpm
 fpm -s dir -t rpm -C / --name aapp --version 8.4.0 --iteration 1 --description "AAPP" /opt/aapp/
+
+dnf update -y
+dnf install -y epel-release.noarch
+dnf config-manager --set-enabled powertools
+dnf install -y kitty-terminfo
+dnf install -y cmake ksh  texinfo help2man ruby ruby-devel texinfo-tex
+dnf install -y libnsl.i686   libnsl.x86_64  libnsl2.i686  
+dnf install -y  gcc-gfortran libnsl2-devel.i686 libxml2-devel libnsl2-devel
+
+dnf module reset ruby -y
+yum install @ruby:3.3
